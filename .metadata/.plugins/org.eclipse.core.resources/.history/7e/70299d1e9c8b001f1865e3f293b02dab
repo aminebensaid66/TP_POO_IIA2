@@ -1,0 +1,85 @@
+package EX2;
+
+import java.util.Random;
+
+public class Paquet {
+	private int ncartes;
+	Carte[] pile;
+	public static void main(String[] args) {
+		Paquet p=new Paquet();
+		p.paquetComplet();
+		System.out.print("paquet avant melange");
+		p.toString();
+		p.melanger();
+		System.out.print("paquet apres melange");
+		p.toString();
+		
+		
+	}
+	
+	public Paquet() {
+		pile=new Carte[52];
+		ncartes=0;
+	}
+	public Paquet(Carte[] carte,int ncarte) {
+		pile=new Carte[52];
+		for(int i=0;i<ncarte;i++) {
+			pile[i]=carte[i];
+		}
+		ncartes=ncarte;
+	}
+	public void paquetComplet() {
+        String[] couleurs = {"Coeur", "Carreau", "Pique", "Trèfle"};
+        int i = 0;
+    
+        for (int s=0;s<couleurs.length;s++) {
+            for (int rang = 1; rang <= 13; rang++) {
+                this.pile[i] = new Carte(rang, couleurs[s]);  
+                i++;
+            }
+        }
+        this.ncartes = 52; 
+    }
+
+	public String toString() {
+		String res="";
+		for(int i=0;i<ncartes;i++) {
+			String ch=pile[i].toString();
+			res=res+ch+"\n";
+			
+		}
+		return res;
+	}
+	public int getNcartes() {
+		return ncartes;
+	}
+	public void melanger() {
+		Random r=new Random();
+		for(int i=0;i<ncartes;i++) {
+			int k=r.nextInt(53);
+			Carte aux=pile[i];
+			pile[i]=pile[k];
+			pile[k]=aux;
+		}
+	}
+	public Carte retirer() {
+		
+		if(ncartes==0)return null;
+		else {
+			Carte x=pile[0];
+			for(int i=0;i<ncartes-1;i++) {
+				pile[i]=pile[i+1];
+
+			}
+			ncartes--;
+			return x;
+			
+			
+		}
+	}
+	public boolean estvide() {
+		return ncartes==0;
+	}
+	
+
+}

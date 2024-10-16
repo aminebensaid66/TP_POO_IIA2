@@ -1,0 +1,78 @@
+package EX1;
+import java.util.Random;
+public class ParcourirTab {
+	int [] t;
+	public ParcourirTab(int n) {
+		t=new int[n];
+	}
+
+	public static void main(String[] args) {
+		ParcourirTab tab1=new ParcourirTab(5);
+		tab1.remplir();
+		tab1.afficher();
+		int s=tab1.somme();
+		System.out.println("la somme est "+s);
+		double m=tab1.moyenne();
+		System.out.println("la moyenne est "+m);
+		int i=tab1.indiceMaxi();
+		System.out.println("l'indice maximale  est "+m);
+		ParcourirTab tab2=tab1.opposes().clone();
+				
+
+	}
+	public void remplir() {
+		Random r=new Random();
+		for(int i=0;i<t.length;i++) {
+			t[i]=r.nextInt(101);
+		}
+		
+	}
+	public int somme() {
+		int s=0;
+		for(int i=0; i<t.length;i++) {
+			s=s+t[i];
+		}
+		return s;
+	}
+	public double moyenne() {
+		int s=somme();
+		return (double)s/t.length;
+	}
+	public int minimum() {
+		int min=100;
+		for(int i=0;i<t.length;i++) {
+			if(t[i]<min) {
+				min=t[i];
+			}
+		}
+		return min;
+	}
+	public int  indiceMaxi() {
+	int ind=0;
+	for(int i=0;i<t.length;i++) {
+		if(t[i]>t[ind]) {
+			ind=i;
+		}
+	}
+	return ind;
+	}
+	public  ParcourirTab opposes() {
+		 ParcourirTab op=new  ParcourirTab(t.length);
+		for(int i=0;i<t.length;i++) {
+			op.t[i]=t[i]*-1;
+			
+		}
+		return op;
+	}
+	public void afficher () {
+		System.out.print("le tableau :");
+		for(int i=0;i<t.length;i++) {
+			System.out.print(t[i]+"|");
+		}
+		System.out.println("");
+	}
+	
+	
+	
+
+}

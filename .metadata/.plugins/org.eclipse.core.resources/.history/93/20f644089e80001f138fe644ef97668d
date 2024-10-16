@@ -1,0 +1,19 @@
+package exercice3;
+
+public class Satellite03 {
+	public static void main(String[] args) {
+		private int masse:
+		private int vitesse;	
+		public String nom;
+		Satellite03(double ma,double vi,String nm){
+			masse=ma;
+			vitesse=vi;
+			nom=nm;
+		}
+		public void impulsion(double force,double duree) {
+			double res=(force*duree)/masse;
+		}
+		
+}
+	}
+

@@ -1,0 +1,53 @@
+package EX1;
+import java.util.Random;
+public class ParcourirTab {
+	int [] t;
+	public ParcourirTab(int n) {
+		t=new int[n];
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	public void remplir() {
+		Random r=new Random();
+		for(int i=0;i<t.length;i++) {
+			t[i]=r.nextInt(101);
+		}
+		
+	}
+	public int somme() {
+		int s=0;
+		for(int i=0; i<t.length;i++) {
+			s=s+t[i];
+		}
+		return s;
+	}
+	public int moyenne() {
+		int s=somme();
+		return s/t.length;
+	}
+	public int minimum() {
+		int min=100;
+		for(int i=0;i<t.length;i++) {
+			if(t[i]<min) {
+				min=t[i];
+			}
+		}
+		return min;
+	}
+	public int  indiceMaxi() {
+	int ind=0;
+	for(int i=0;i<t.length;i++) {
+		if(t[i]>t[ind]) {
+			ind=i;
+		}
+	}
+	return ind;
+	}
+	
+	
+	
+
+}

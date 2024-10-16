@@ -1,0 +1,39 @@
+package EX2;
+
+public class Paquet {
+	private int ncartes;
+	Carte[] pile;
+	
+	public Paquet() {
+		pile=new Carte[52];
+		ncartes=0;
+	}
+	public Paquet(Carte[] carte,int ncarte) {
+		pile=new Carte[52];
+		for(int i=0;i<ncarte;i++) {
+			pile[i]=carte[i];
+		}
+		ncartes=ncarte;
+	}
+	public void  paquetcomplet() {
+		
+	}
+
+	public String toString() {
+		String res="";
+		for(int i=0;i<ncartes;i++) {
+			String ch=pile[i].toString();
+			res=res+ch+"\n";
+			
+		}
+		return res;
+	}
+	public int getNcartes() {
+		return ncartes;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
